@@ -15,7 +15,14 @@ var editItem = function (event) {
   var text = $(this).text();
   var textarea = $("<textarea>").addClass("textarea col-10").val(text);
   $(this).replaceWith(textarea);
+  textarea.trigger("focus");
 };
+$(".time-block").on("blur", "textarea", function () {
+  console.log("blur");
+  var text = $(this).val().trim();
+  var newP = $("<p>").addClass("content col-10").text(text);
+  $(this).replaceWith(newP);
+});
 $("body").on("click", ".saveBtn", saveItem);
 $("body").on("click", ".content", editItem);
 loadItems();
