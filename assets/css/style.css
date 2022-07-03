@@ -11,6 +11,7 @@ textarea{
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
+  display: flex;
 }
 
 .jumbotron {
@@ -40,6 +41,7 @@ textarea{
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  height: inherit;
 }
 
 .past {
@@ -63,9 +65,20 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: inherit;
 }
 
-.saveBtn i:hover {
+.saveBtn:hover {
   font-size: 20px;
-  transition: all .3s ease-in-out;
+  background-color: #5ac1d8;
+  transition: all .2s ease-in-out;
+}
+.content{
+  height: inherit;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
 }
