@@ -38,6 +38,7 @@ var timeStuff = function () {
     }
   });
 };
+var automation = setInterval(timeStuff(), 60000);
 $("body").on("click", ".saveBtn", saveItem);
 $("body").on("click", ".content", editItem);
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
