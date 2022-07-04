@@ -18,11 +18,28 @@ var editItem = function (event) {
   textarea.trigger("focus");
 };
 $(".time-block").on("blur", "textarea", function () {
-  console.log("blur");
   var text = $(this).val().trim();
   var newP = $("<p>").addClass("content col-10").text(text);
   $(this).replaceWith(newP);
+  timeStuff();
 });
+var timeStuff = function () {
+  $("#currentDay").text(moment().format("dddd, MMMM Do"));
+  $(".content").each(function () {
+    var hourSlot = $(this).parent().attr("id");
+    var currentTime = moment().hour();
+    $(this).removeClass("past present future");
+    if (hourSlot < currentTime) {
+      $(this).addClass("past");
+    } else if (hourSlot == currentTime) {
+      $(this).addClass("present");
+    } else if (hourSlot > currentTime) {
+      $(this).addClass("future");
+    }
+  });
+};
 $("body").on("click", ".saveBtn", saveItem);
 $("body").on("click", ".content", editItem);
+$("#currentDay").text(moment().format("dddd, MMMM Do"));
 loadItems();
+timeStuff();
